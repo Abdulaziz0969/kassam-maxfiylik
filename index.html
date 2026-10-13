@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kassam — Maxfiylik siyosati</title>
+<style>
+  :root { --yashil:#1B9E5A; --matn:#14241c; --kul:#5c6b63; --chiziq:#e2ece7; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+         color:var(--matn); line-height:1.65; background:#fff; }
+  header { background:linear-gradient(160deg,#2FAE6E,#15864C); color:#fff; padding:48px 16px 40px; }
+  .ich { max-width:760px; margin:0 auto; padding:0 16px; }
+  header h1 { margin:0 0 6px; font-size:30px; }
+  header p { margin:0; opacity:.9; }
+  main { padding:36px 0 64px; }
+  h2 { font-size:22px; margin:36px 0 10px; color:var(--yashil); }
+  h3 { font-size:17px; margin:22px 0 6px; }
+  ul { padding-left:20px; } li { margin:5px 0; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:15px; }
+  th,td { border:1px solid var(--chiziq); padding:9px 11px; text-align:left; vertical-align:top; }
+  th { background:#f3f9f6; }
+  .til { border-top:2px solid var(--chiziq); margin-top:52px; padding-top:8px; }
+  footer { color:var(--kul); font-size:14px; padding:24px 0 48px; }
+  a { color:var(--yashil); }
+</style>
+</head>
+<body>
+<header>
+  <div class="ich">
+    <h1>Kassam — Maxfiylik siyosati</h1>
+    <p>Oxirgi yangilanish: 2026-yil 13-oktabr</p>
+  </div>
+</header>
+
+<main class="ich">
+  <p>Kassam — shaxsiy moliyani yuritish uchun mobil ilova. Ushbu hujjat ilova
+  qanday ma'lumot to'plashini, uni nima uchun ishlatishini va foydalanuvchi
+  qanday huquqlarga ega ekanini tushuntiradi.</p>
+
+  <h2>1. To'planadigan ma'lumotlar</h2>
+  <table>
+    <tr><th>Ma'lumot</th><th>Nima uchun</th></tr>
+    <tr><td>Telefon raqami</td><td>Ro'yxatdan o'tish va hisobga kirish</td></tr>
+    <tr><td>Ism, familiya, tug'ilgan sana</td><td>Foydalanuvchi profili</td></tr>
+    <tr><td>Manzil: viloyat, tuman, ko'cha</td><td>Profilni to'ldirish (ixtiyoriy)</td></tr>
+    <tr><td>Moliyaviy yozuvlar: hamyonlar, kirim-chiqim, qarzlar, summalar</td>
+        <td>Ilovaning asosiy vazifasi — hisob yuritish</td></tr>
+    <tr><td>Qurilma tokeni (Firebase Cloud Messaging)</td><td>Push bildirishnoma yuborish</td></tr>
+    <tr><td>Ovoz yozuvi — faqat mikrofon tugmasi bosilganda</td>
+        <td>Aytilgan gapni matnga aylantirib, operatsiya yaratish</td></tr>
+    <tr><td>Kontakt <strong>ismlari</strong> — faqat ovozli buyruq paytida</td>
+        <td>«Falonchiga qo'ng'iroq qil» kabi buyruqda kerakli shaxsni topish</td></tr>
+  </table>
+
+  <h3>Ovoz va kontaktlar haqida alohida</h3>
+  <ul>
+    <li>Mikrofon faqat ovoz tugmasi bosib turilganda yoqiladi. Ilova fonda
+        yoki o'z-o'zidan tovush yozmaydi.</li>
+    <li>Yozilgan ovoz matnga aylantirish uchun serverga, u yerdan Google
+        Gemini xizmatiga yuboriladi. Matn olingach, buyruq bajariladi.</li>
+    <li>Kontaktlardan faqat <strong>ismlar</strong> yuboriladi.
+        <strong>Telefon raqamlari qurilmadan chiqmaydi</strong> — qo'ng'iroq
+        telefonning o'z ilovasi orqali amalga oshiriladi.</li>
+    <li>Ovoz funksiyasi ixtiyoriy: undan foydalanmasangiz, na mikrofon, na
+        kontaktlar so'ralmaydi, ilovaning qolgan qismi to'liq ishlayveradi.</li>
+  </ul>
+
+  <h3>Ilova to'plamaydigan ma'lumotlar</h3>
+  <ul>
+    <li>Joylashuv (GPS)</li>
+    <li>Kontaktlar, qo'ng'iroqlar va SMS yozuvlari</li>
+    <li>Kamera va galereyadagi rasmlar</li>
+    <li>Telefon kitobidagi raqamlar (faqat ismlar, yuqoriga qarang)</li>
+    <li>Bank kartasi yoki to'lov ma'lumotlari — ilova orqali pul o'tkazilmaydi</li>
+  </ul>
+
+  <h2>2. Ma'lumot qayerda saqlanadi</h2>
+  <p>Ma'lumotlar <strong>Xoljurayev Bahodirjon Toxir o'g'li</strong> ga tegishli serverda saqlanadi.
+  Ilova bilan server o'rtasidagi aloqa HTTPS orqali shifrlangan holda amalga
+  oshiriladi.</p>
+  <p>PIN kod va kirish kaliti faqat foydalanuvchining telefonida saqlanadi,
+  serverga yuborilmaydi. Barmoq izi va Face ID ma'lumotlari ilovaga umuman
+  berilmaydi — ularni operatsion tizimning o'zi tekshiradi.</p>
+
+  <h2>3. Ma'lumot uchinchi tomonga berilmaydi</h2>
+  <p>To'plangan ma'lumot sotilmaydi va reklama maqsadida ishlatilmaydi.
+  Yagona tashqi xizmat — bildirishnoma yetkazish uchun ishlatiladigan
+  <a href="https://firebase.google.com/support/privacy" target="_blank"
+  rel="noopener">Firebase Cloud Messaging</a> (Google). Unga qurilma tokeni
+  va bildirishnoma matni uzatiladi, moliyaviy ma'lumot uzatilmaydi.</p>
+  <p>Ma'lumot faqat O'zbekiston Respublikasi qonunchiligi talab qilgan
+  hollarda vakolatli organlarga taqdim etilishi mumkin.</p>
+
+  <h2>4. Saqlash muddati va o'chirish</h2>
+  <p>Ma'lumotlar foydalanuvchi hisobi faol bo'lgan davrda saqlanadi.
+  Hisobni va unga bog'liq barcha ma'lumotlarni o'chirish uchun
+  <a href="mailto:smartboy98999899@gmail.com">smartboy98999899@gmail.com</a> manziliga telefon raqamingizni
+  ko'rsatgan holda xat yuboring. Ariza 30 kun ichida bajariladi.</p>
+
+  <h2>5. Bolalar</h2>
+  <p>Ilova 18 yoshdan katta foydalanuvchilar uchun mo'ljallangan va bolalardan
+  ataylab ma'lumot to'plamaydi.</p>
+
+  <h2>6. O'zgartirishlar</h2>
+  <p>Siyosat yangilansa, shu sahifadagi "Oxirgi yangilanish" sanasi
+  o'zgaradi.</p>
+
+  <h2>7. Aloqa</h2>
+  <p>Savollar bo'yicha: <a href="mailto:smartboy98999899@gmail.com">smartboy98999899@gmail.com</a><br>
+  Ilova egasi: Xoljurayev Bahodirjon Toxir o'g'li</p>
+
+  <!-- ====================== RUSCHA ====================== -->
+  <div class="til">
+    <h1 style="font-size:26px">Kassam — Политика конфиденциальности</h1>
+    <p>Последнее обновление: 13 октября 2026 г.</p>
+
+    <h2>1. Какие данные собираются</h2>
+    <table>
+      <tr><th>Данные</th><th>Цель</th></tr>
+      <tr><td>Номер телефона</td><td>Регистрация и вход</td></tr>
+      <tr><td>Имя, фамилия, дата рождения</td><td>Профиль пользователя</td></tr>
+      <tr><td>Адрес: область, район, улица</td><td>Заполнение профиля (необязательно)</td></tr>
+      <tr><td>Финансовые записи: кошельки, доходы и расходы, долги, суммы</td>
+          <td>Основная функция приложения — учёт</td></tr>
+      <tr><td>Токен устройства (Firebase Cloud Messaging)</td><td>Push-уведомления</td></tr>
+      <tr><td>Голосовая запись — только при нажатии кнопки микрофона</td>
+          <td>Распознавание речи и создание операции</td></tr>
+      <tr><td><strong>Имена</strong> контактов — только при голосовой команде</td>
+          <td>Поиск нужного человека в команде «Позвони ...»</td></tr>
+    </table>
+
+    <h3>О голосе и контактах</h3>
+    <ul>
+      <li>Микрофон включается только при нажатии кнопки голоса. Фоновая
+          запись не ведётся.</li>
+      <li>Запись отправляется на сервер и далее в сервис Google Gemini для
+          распознавания речи.</li>
+      <li>Из контактов передаются только <strong>имена</strong>. Номера
+          телефонов с устройства не отправляются.</li>
+      <li>Функция необязательная: без неё ни микрофон, ни контакты не
+          запрашиваются.</li>
+    </ul>
+
+    <h3>Что приложение не собирает</h3>
+    <ul>
+      <li>Геолокацию</li>
+      <li>Контакты, журналы звонков и SMS</li>
+      <li>Фотографии, камеру</li>
+      <li>Данные банковских карт — приложение не проводит платежи</li>
+    </ul>
+
+    <h2>2. Хранение данных</h2>
+    <p>Данные хранятся на сервере, принадлежащем <strong>Xoljurayev Bahodirjon Toxir o'g'li</strong>.
+    Обмен между приложением и сервером защищён по HTTPS. PIN-код и ключ входа
+    хранятся только на устройстве. Данные отпечатка пальца и Face ID
+    приложению не передаются.</p>
+
+    <h2>3. Передача третьим лицам</h2>
+    <p>Данные не продаются и не используются в рекламных целях. Единственный
+    внешний сервис — Firebase Cloud Messaging (Google) для доставки
+    уведомлений; ему передаётся токен устройства, финансовые данные не
+    передаются. Данные могут быть предоставлены уполномоченным органам только
+    по требованию законодательства Республики Узбекистан.</p>
+
+    <h2>4. Срок хранения и удаление</h2>
+    <p>Данные хранятся, пока учётная запись активна. Для удаления учётной
+    записи и всех связанных данных напишите на
+    <a href="mailto:smartboy98999899@gmail.com">smartboy98999899@gmail.com</a>, указав номер телефона.
+    Запрос выполняется в течение 30 дней.</p>
+
+    <h2>5. Дети</h2>
+    <p>Приложение предназначено для пользователей старше 18 лет.</p>
+
+    <h2>6. Контакты</h2>
+    <p><a href="mailto:smartboy98999899@gmail.com">smartboy98999899@gmail.com</a></p>
+  </div>
+
+  <footer>© 2026 Xoljurayev Bahodirjon Toxir o'g'li. Kassam.</footer>
+</main>
+</body>
+</html>
